@@ -1,0 +1,39 @@
+<style>
+  /* ===== TOP INFO BAR ===== */
+  .top-bar {
+    background: #f8f9fa;
+    font-size: 14px;
+  }
+
+  .top-bar a {
+    color: #333;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+
+  .top-bar a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="top-bar py-2 fixed-top">
+  <div
+    class="container-fluid d-flex justify-content-between align-items-center"
+  >
+    <div>
+      <i class="bi bi-telephone"></i> 0111 050130
+      <i class="bi bi-phone ms-3"></i> 0700 000736
+      <i class="bi bi-envelope ms-3"></i> sales@glantix.co.ke
+    </div>
+
+    <div>
+      {% if request.user.is_authenticated %}
+      <a href="#" class="fw-bold">Account</a>
+      <a href="{% url 'logout' %}" class="fw-bold ms-3">Logout</a>
+      {% else %}
+      <a href="{% url 'login' %}">Login</a> |
+      <a href="{% url 'register' %}">Register</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
